@@ -1,0 +1,177 @@
+@import "./_variables.scss";
+@import "./_fonts.scss";
+
+@mixin btn-primary {
+  outline: none;
+  cursor: pointer;
+  font-weight: 700;
+  background-color: $hoverAndBtnColor;
+  color: $white;
+  padding: 12px 20px;
+  border: 3px solid $hoverAndBtnColor;
+  transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+  &:hover {
+    background-color: $hoverBtnColor;
+  }
+  &:focus-visible {
+    background-color: $hoverAndBtnColor;
+    border: 3px solid $activeBtnColor;
+  }
+  &:active {
+    background-color: $activeBtnColor;
+    border-color: $activeBtnColor;
+  }
+  @media (max-width: 576px) {
+    & {
+      font-size: 14px;
+      padding: 9px 19px;
+    }
+  }
+}
+
+@mixin btn-project {
+  padding: 13px 18px;
+  outline: none;
+  border: 3px solid $hoverAndBtnColor;
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  background: none;
+  color: $white;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+  &:hover {
+    background-color: $hoverAndBtnColor;
+  }
+  &:focus-visible {
+    background-color: $hoverBtnColor;
+    border: 3px solid $hoverAndBtnColor;
+  }
+  &:active {
+    background-color: $activeBtnColor;
+    border: 3px solid $activeBtnColor;
+  }
+  @media (max-width: 576px) {
+    & {
+      font-size: 14px;
+      padding: 9px 17px;
+    }
+  }
+}
+
+@mixin title {
+  font-family: "TTFirsNeue";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 31px;
+  @media (max-width: 576px) {
+    & {
+      font-size: 18px;
+    }
+  }
+}
+
+@mixin text {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+@mixin menu {
+  display: flex;
+  margin-right: auto;
+  & .menu__item {
+    margin-right: 79px;
+    font-family: "TTFirsNeue";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: $white;
+    z-index: 1;
+    &:last-of-type {
+      margin: 0;
+    }
+    & a {
+      position: relative;
+      font-family: "TTFirsNeue";
+      color: $white;
+      outline: none;
+      transition: color 0.3s ease-in-out;
+    }
+    & a:hover {
+      color: $hoverAndBtnColor;
+    }
+    & a::after {
+      content: "";
+      position: absolute;
+      top: -5px;
+      bottom: -5px;
+      left: -5px;
+      right: -5px;
+      z-index: -1;
+      background-color: $hoverBtnColor;
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+    & a:focus-visible {
+      color: $white;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+    & a:active {
+      color: $activeBtnColor;
+    }
+  }
+}
+
+@mixin hashtag {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  padding: 7px 15px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: $white;
+  background-color: $mainDark;
+  &:focus-visible {
+    border: none;
+    outline: 1px solid $white;
+  }
+  @media (max-width: 576px) {
+    & {
+      font-size: 12px;
+      padding: 4px 7px;
+      top: 6px;
+      right: 5px;
+    }
+  }
+}
+
+@mixin input {
+  background-color: $subcribeInputColors;
+  border: 1px solid $subcribeInputColors;
+  padding-left: 23px;
+  outline: none;
+  &:focus {
+    border: 1px solid $hoverAndBtnColor;
+  }
+  &::placeholder {
+    color: $textonBlackColor;
+    transition: color 0.15s linear;
+  }
+  &:hover::placeholder {
+    color: $hoverAndBtnColor;
+  }
+  &:focus::placeholder {
+    color: $white;
+  }
+  color: $white;
+}
